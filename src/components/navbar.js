@@ -1,73 +1,78 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import {Button} from './button';
 import './navbar.css';
 
 
-function NavBar() {
+function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
-  const handleClick = () => setClick(!click); {/*Sets to opposite of click value*/}
+  const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
-      setButton(false)
-    }
-    else {
-      setButton(true)
+      setButton(false);
+    } else {
+      setButton(true);
     }
   };
 
   window.addEventListener('resize', showButton);
 
   return (
-    <nav className='navbar'>
-      <div className='navbar container'>
-        <Link to="/" className="navbar-logo">
-          TRVL <i className='fab fa typo3'/>
-        </Link>
-        <div className='.menu-icon' onClick={handleClick}>  {/*Hamburger Menu Icon*/}
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+    <>
+      <nav className='navbar'>
+        <div className='navbar-container'>
+          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            TRVL
+            <i class='fab fa-typo3' />
+          </Link>
+          <div className='menu-icon' onClick={handleClick}>
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          </div>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+            <li className='nav-item'>
+              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                Home
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to='/services'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Services
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to='/products'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Products
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to='/sign-up'
+                className='nav-links-mobile'
+                onClick={closeMobileMenu}
+              >
+                Sign Up
+              </Link>
+            </li>
+          </ul>
+          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
         </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-        <li className='nav-item'>
-          <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-          Home
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/aboutme' className='nav-links' onClick={closeMobileMenu}>
-          About Me
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/codingprojects' className='nav-links' onClick={closeMobileMenu}>
-          Coding Projects
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/Writing' className='nav-links' onClick={closeMobileMenu}>
-          Writing
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/Design' className='nav-links' onClick={closeMobileMenu}>
-          Design
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
-          Sign Up
-          </Link>
-        </li>
-        </ul>
-        {button && <Button buttonStyle='btn--outline' buttonSize='btn--medium'>Sign Up</Button>}
-      </div>
-    </nav>
-  )
+      </nav>
+    </>
+  );
 }
 
-export default NavBar
+
+export default Navbar;
