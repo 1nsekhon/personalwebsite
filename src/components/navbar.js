@@ -1,16 +1,16 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
-import {Button} from './button';
+import React from 'react'
 import './navbar.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
+// provides navigation
 function Navbar() {
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
+  //onst [click, setClick] = useState(false);
+  //const [button, setButton] = useState(true);
 
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
+  //const handleClick = () => setClick(!click);
+  //const closeMobileMenu = () => setClick(false);
+/*
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
@@ -18,61 +18,126 @@ function Navbar() {
       setButton(true);
     }
   };
+  
 
   window.addEventListener('resize', showButton);
+*/
 
+return (
+  <nav className='nav'>
+    <a href="/">nks</a>
+    <ul>
+      <li>
+        <a href="/projects">Projects</a>
+      </li>
+      <li>
+        <a href="/writing">Writing</a>
+      </li>
+      <li>
+        <a href="/contactme">Say Hi!</a>
+      </li>
+    </ul>
+  </nav>
+)
+}
+
+/*
   return (
     <>
       <nav className='navbar'>
+        <a href="/" className="title">nks</a>
         <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            TRVL
+          <Link to='/' className='navbar-nks-logo' onClick={closeMobileMenu}>
+            nks
             <i class='fab fa-typo3' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-list'>
+
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              <NavLink 
+                to='/' 
+                className={({isActive}) => 
+                  isActive ? 'nav-links active' : 'nav-links'
+                }
+                onClick={closeMobileMenu}
+                title= 'See Where All the Magic Lives'
+                aria-label="Home Page"
+                tabIndex={0}
+                >
                 Home
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/services'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Services
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/products'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Products
-              </Link>
+              </NavLink>
             </li>
 
-            <li>
-              <Link
-                to='/sign-up'
-                className='nav-links-mobile'
+            <li className='nav-item'>
+              <NavLink
+                to='/resume'
+                className={({isActive}) => 
+                  isActive ? 'nav-links active' : 'nav-links'
+                }
                 onClick={closeMobileMenu}
+                title= 'See Where the Magic was Built'
+                aria-label="Nanki's Resume"
+                tabIndex={1}
               >
-                Sign Up
-              </Link>
+                Resume
+              </NavLink>
+            </li>
+
+            <li className='nav-item'>
+              <NavLink
+                to='/projects'
+                className={({isActive}) => 
+                  isActive ? 'nav-links active' : 'nav-links'
+                }
+                onClick={closeMobileMenu}
+                title= 'See the Magic'
+                aria-label="Nanki's Projects"
+                tabIndex={2}
+              >
+                Projects
+                <i className='fas fa-folder'></i>
+              </NavLink>
+
+            </li>
+
+            <li className='nav-item'>
+              <NavLink
+                to='/writing'
+                className={({isActive}) => 
+                  isActive ? 'nav-links active' : 'nav-links'
+                }
+                onClick={closeMobileMenu}
+                title= 'See Where the Magic Takes Ahold of a Pen'
+                aria-label="Nanki's Writing"
+                tabIndex={3}
+              >
+                Writing
+              </NavLink>
+            </li>
+
+            <li className='nav-item'>
+              <NavLink
+                to='/contactme'
+                className={({isActive}) => 
+                  isActive ? 'nav-links active' : 'nav-links'
+                }
+                onClick={closeMobileMenu}
+                title= 'Contact the Magic'
+                aria-label="Contact Nanki"
+                tabIndex={4}
+              >
+                Say Hi!
+              </NavLink>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
         </div>
       </nav>
     </>
   );
 }
-
+*/
 
 export default Navbar;

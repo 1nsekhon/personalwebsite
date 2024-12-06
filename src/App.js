@@ -1,7 +1,7 @@
 import './App.css';
 import React  from 'react';
 import NavBar from './components/navbar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   const title = "Nanki's Beautiful Website";
@@ -9,13 +9,8 @@ function App() {
   return (
       
       <>
-      <h1>YO from {title}</h1>
-      <Router>
-      <NavBar/>
-      <Routes>
-        <Route path="https://www.google.com/maps" exact/> 
-      </Routes>
-      </Router>
+      <NavBar></NavBar>
+      <h1>YO from {title}!</h1>
       </>
 
       

@@ -1,12 +1,32 @@
 .nav-bar {
-    background: greenyellow;
+    background-color: #9F6F6F;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
 }
 
-.fa-times {
+/* Container of the item */
+.nav-item {
+    margin: 8px;
+}
+
+.nav-links {
+    color: black;
+}
+
+.nav-links.active {
+    color: white;
+}
+
+.nav {
+    background-color: #9F6F6F;
+}
+
+/* .fa-times {
     color: white;
     font-size: 2rem;
-}
-
+} */
+/* 
 .nav-links-mobile {
     display: block;
     text-align: center;
@@ -26,4 +46,21 @@
     background: wite;
     color: black;
     transition: 250ms;
+} */
+
+.navbar-container{
+    background-color: #9F6F6F;
+}
+
+.navbar-nks-logo {
+    font-family: Perpetua;
+    color: white;
+}
+
+.nav-item {
+    color: black;
+}
+
+.nav-item {
+    color: aqua;
 }
