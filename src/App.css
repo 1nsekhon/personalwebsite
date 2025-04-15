@@ -1,7 +1,8 @@
-.h1 {
-    color: purple;
-}
-
 .body {
     margin: 0;
+}
+
+.navRouting {
+    margin: 1 rem;
+    text-align: center;
 }
